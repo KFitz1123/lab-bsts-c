@@ -75,11 +75,22 @@ public class SimpleBST<K,V> implements SimpleMap<K,V> {
        current.value = value;
         return temp;
       } else if(comp > 1){
-        current = current.right;
+        if(current.right == null){
+          current.right = new BSTNode<K,V>(key, value);
+        }// if if
+        else{
+          current = current.right;
+        }//if else
       }else{
-        current = current.left;
-      }
-      }
+        if(current.left == null){
+          current.left = new BSTNode<K,V>(key, value);
+
+        }//else if
+        else{
+          current = current.left;
+        }//else else
+      }//else
+      }//for
       
     }
 
